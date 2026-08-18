@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banafsheh Saber Latibari, Ph.D. · Assistant Professor, ECE, NMSU</title>
+<meta name="description" content="Faculty page of Banafsheh Saber Latibari, Ph.D., Assistant Professor of Electrical and Computer Engineering at New Mexico State University.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F2E9;
+    --paper-deep:#EFE9DA;
+    --ink:#211C15;
+    --ink-soft:#5B5548;
+    --ink-faint:#8B8474;
+    --crimson:#7C1430;
+    --crimson-bright:#9C1B3F;
+    --gold:#A9822D;
+    --line: rgba(33,28,21,0.14);
+    --line-strong: rgba(33,28,21,0.28);
+    --card:#FCFAF3;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', 'Source Serif 4', serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+    margin:0;
+  }
+  a{color:var(--crimson); text-decoration:none;}
+  a:hover{color:var(--crimson-bright); text-decoration:underline;}
+  a:focus-visible, button:focus-visible, .navlink:focus-visible{
+    outline:2px solid var(--crimson-bright);
+    outline-offset:3px;
+    border-radius:2px;
+  }
+  .mono{font-family:'IBM Plex Mono', monospace; letter-spacing:0.02em;}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--crimson);
+  }
+
+  /* ---------- Layout shell ---------- */
+  .shell{display:flex; min-height:100vh; max-width:1400px; margin:0 auto;}
+  .sidebar{
+    width:270px;
+    flex-shrink:0;
+    padding:44px 30px 30px 40px;
+    border-right:1px solid var(--line);
+    position:sticky;
+    top:0;
+    align-self:flex-start;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+  }
+  .seal{width:64px; height:64px; margin-bottom:22px;}
+  .side-name{font-size:1.28rem; line-height:1.25; margin-bottom:4px;}
+  .side-title{font-size:0.86rem; color:var(--ink-soft); line-height:1.5; margin-bottom:26px;}
+  nav.sidenav{display:flex; flex-direction:column; gap:2px; margin-bottom:auto;}
+  .navlink{
+    display:flex; align-items:baseline; gap:10px;
+    padding:8px 6px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.82rem;
+    color:var(--ink-soft);
+    border-left:2px solid transparent;
+    text-decoration:none;
+  }
+  .navlink:hover{color:var(--crimson); text-decoration:none;}
+  .navlink .rn{color:var(--ink-faint); font-size:0.76rem; width:1.4em;}
+  .navlink.active{color:var(--crimson); border-left-color:var(--crimson); background:rgba(124,20,48,0.06);}
+  .navlink.active .rn{color:var(--crimson);}
+  .side-foot{padding-top:24px; border-top:1px solid var(--line); font-size:0.76rem; color:var(--ink-faint); font-family:'IBM Plex Mono',monospace; line-height:1.7;}
+
+  .menu-toggle{display:none;}
+
+  main{flex:1; min-width:0;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:96px 64px 70px;
+    border-bottom:1px solid var(--line);
+    position:relative;
+  }
+  .hero-eyebrow{margin-bottom:22px;}
+  .hero-photo{margin:0 0 34px; padding:0;}
+  .hero-photo img{width:100%; height:340px; object-fit:cover; display:block; border:1px solid var(--line);}
+  .hero-photo figcaption{font-family:'IBM Plex Mono',monospace; font-size:0.7rem; color:var(--ink-faint); margin-top:8px;}
+  .prospective-banner{
+    background:var(--crimson); color:#fff; font-weight:700;
+    padding:18px 64px; font-size:1rem; border-bottom:1px solid var(--line);
+  }
+  .prospective-banner strong{font-weight:700;}
+  .hero h1{font-size:clamp(2.4rem, 4vw, 3.6rem); line-height:1.05;}
+  .hero .role{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:1.25rem;
+    color:var(--crimson);
+    margin-top:14px;
+  }
+  .hero .dept{color:var(--ink-soft); font-size:1rem; margin-top:6px;}
+  .hero-rule{width:64px; height:3px; background:var(--gold); margin:30px 0 30px;}
+  .hero-lede{max-width:640px; font-size:1.08rem; color:var(--ink-soft);}
+  .hero-stats{display:flex; gap:44px; margin-top:44px; flex-wrap:wrap;}
+  .stat .n{font-family:'Fraunces', serif; font-size:2.1rem; color:var(--crimson);}
+  .stat .l{font-family:'IBM Plex Mono', monospace; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-faint); margin-top:2px;}
+
+  /* ---------- Sections ---------- */
+  section.block{padding:64px 64px; border-bottom:1px solid var(--line);}
+  section.block:last-of-type{border-bottom:none;}
+  .block-head{display:flex; align-items:baseline; gap:16px; margin-bottom:34px;}
+  .rn-big{font-family:'Fraunces', serif; font-style:italic; font-size:1.15rem; color:var(--gold);}
+  .block-head h2{font-size:1.7rem;}
+  .block-sub{color:var(--ink-soft); font-size:0.98rem; max-width:640px; margin:-18px 0 34px;}
+
+  .two-col{display:grid; grid-template-columns:1.5fr 1fr; gap:56px;}
+  @media (max-width:900px){.two-col{grid-template-columns:1fr;}}
+
+  .bio p{margin:0 0 16px;}
+  .bio p:last-child{margin-bottom:0;}
+
+  .fact-card{background:var(--card); border:1px solid var(--line); padding:24px 26px; margin-bottom:18px;}
+  .fact-card h3{font-size:0.72rem; font-family:'IBM Plex Mono',monospace; letter-spacing:0.1em; text-transform:uppercase; color:var(--crimson); margin-bottom:12px; font-weight:500;}
+  .fact-card ul{margin:0; padding:0; list-style:none;}
+  .fact-card li{padding:9px 0; border-top:1px solid var(--line); font-size:0.92rem;}
+  .fact-card li:first-child{border-top:none; padding-top:0;}
+  .fact-card .yr{color:var(--ink-faint); font-family:'IBM Plex Mono',monospace; font-size:0.76rem; display:block; margin-top:2px;}
+
+  .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px;}
+  .tag{
+    font-family:'IBM Plex Mono', monospace; font-size:0.74rem;
+    padding:5px 11px; border:1px solid var(--line-strong); color:var(--ink-soft);
+  }
+
+  /* ---------- Education timeline ---------- */
+  .edu-item{display:grid; grid-template-columns:110px 1fr; gap:20px; padding:18px 0; border-top:1px solid var(--line);}
+  .edu-item:first-child{border-top:none;}
+  .edu-year{font-family:'IBM Plex Mono', monospace; color:var(--crimson); font-size:0.88rem; padding-top:2px;}
+  .edu-deg{font-family:'Fraunces', serif; font-size:1.08rem; margin-bottom:3px;}
+  .edu-inst{color:var(--ink-soft); font-size:0.92rem;}
+  .edu-detail{color:var(--ink-faint); font-size:0.86rem; margin-top:5px; font-style:italic;}
+
+  /* ---------- Publications ---------- */
+  .pub-tabs{display:flex; gap:8px; margin-bottom:28px; flex-wrap:wrap;}
+  .pub-tab{
+    font-family:'IBM Plex Mono', monospace; font-size:0.76rem; letter-spacing:0.04em;
+    padding:9px 16px; border:1px solid var(--line-strong); background:transparent; color:var(--ink-soft); cursor:pointer;
+  }
+  .pub-tab.active{background:var(--crimson); border-color:var(--crimson); color:var(--paper);}
+  .pub-group{display:none;}
+  .pub-group.active{display:block;}
+  .pub-count{color:var(--ink-faint); font-size:0.85rem; margin-bottom:22px; font-family:'IBM Plex Mono',monospace;}
+  ol.pub-list{list-style:none; margin:0; padding:0;}
+  .pub-item{
+    display:grid; grid-template-columns:40px 1fr; gap:16px;
+    padding:18px 0; border-top:1px solid var(--line);
+  }
+  .pub-item:first-child{border-top:none;}
+  .pub-num{font-family:'IBM Plex Mono',monospace; color:var(--gold); font-size:0.92rem; padding-top:2px;}
+  .pub-title{font-family:'Fraunces', serif; font-size:1.03rem; line-height:1.4; margin-bottom:6px;}
+  .pub-authors{font-size:0.88rem; color:var(--ink-soft); margin-bottom:4px;}
+  .pub-authors b{color:var(--ink); font-weight:600;}
+  .pub-venue{font-size:0.84rem; color:var(--ink-faint); font-style:italic;}
+
+  /* ---------- Teaching ---------- */
+  .teach-item{
+    display:grid; grid-template-columns:1fr auto; gap:12px; align-items:baseline;
+    padding:16px 0; border-top:1px solid var(--line);
+  }
+  .teach-item:first-child{border-top:none;}
+  .teach-course{font-family:'Fraunces', serif; font-size:1.02rem;}
+  .teach-inst{color:var(--ink-soft); font-size:0.86rem; margin-top:3px;}
+  .teach-term{font-family:'IBM Plex Mono',monospace; font-size:0.78rem; color:var(--ink-faint); white-space:nowrap; text-align:right;}
+
+  /* ---------- Students ---------- */
+  .lab-card{margin-bottom:38px;}
+  .lab-card:last-child{margin-bottom:0;}
+  .lab-title{font-family:'Fraunces',serif; font-size:1.15rem; margin-bottom:4px;}
+  .lab-sub{color:var(--ink-faint); font-size:0.84rem; margin-bottom:18px; font-family:'IBM Plex Mono',monospace;}
+  .stu-cols{display:grid; grid-template-columns:repeat(3, 1fr); gap:28px;}
+  @media (max-width:800px){.stu-cols{grid-template-columns:1fr;}}
+  .stu-cols h4{font-size:0.7rem; font-family:'IBM Plex Mono',monospace; letter-spacing:0.1em; text-transform:uppercase; color:var(--crimson); margin-bottom:10px; font-weight:500;}
+  .stu-cols ul{list-style:none; margin:0; padding:0;}
+  .stu-cols li{padding:6px 0; font-size:0.92rem; border-top:1px solid var(--line);}
+  .stu-cols li:first-child{border-top:none;}
+
+  /* ---------- News ---------- */
+  .news-item{display:grid; grid-template-columns:130px 1fr; gap:20px; padding:20px 0; border-top:1px solid var(--line);}
+  .news-item:first-child{border-top:none;}
+  .news-date{font-family:'IBM Plex Mono',monospace; color:var(--crimson); font-size:0.82rem; padding-top:2px;}
+  .news-body p{margin:0; font-size:0.98rem;}
+
+  /* ---------- Contact ---------- */
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:40px;}
+  @media (max-width:700px){.contact-grid{grid-template-columns:1fr;}}
+  .contact-row{padding:16px 0; border-top:1px solid var(--line);}
+  .contact-row:first-child{border-top:none;}
+  .contact-row .l{font-family:'IBM Plex Mono',monospace; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:5px;}
+  .contact-row .v{font-size:1.02rem;}
+  .social-link{display:inline-flex; align-items:center; gap:10px;}
+  .social-link svg{width:22px; height:22px; flex-shrink:0; color:var(--ink-soft);}
+
+  footer{padding:38px 64px; text-align:center; color:var(--ink-faint); font-family:'IBM Plex Mono',monospace; font-size:0.76rem;}
+
+  /* ---------- Mobile ---------- */
+  @media (max-width:860px){
+    .shell{flex-direction:column;}
+    .sidebar{
+      position:sticky; top:0; z-index:50; width:100%; height:auto;
+      flex-direction:row; align-items:center; justify-content:space-between;
+      padding:16px 20px; border-right:none; border-bottom:1px solid var(--line);
+      background:var(--paper);
+    }
+    .side-title, .side-foot{display:none;}
+    .seal{width:36px; height:36px; margin-bottom:0;}
+    nav.sidenav{
+      position:fixed; top:64px; left:0; right:0; bottom:0;
+      background:var(--paper); padding:20px; gap:6px;
+      transform:translateY(-110%); transition:transform 0.25s ease;
+      overflow-y:auto;
+    }
+    nav.sidenav.open{transform:translateY(0);}
+    .menu-toggle{
+      display:block; background:none; border:1px solid var(--line-strong);
+      font-family:'IBM Plex Mono',monospace; font-size:0.78rem; padding:8px 14px; color:var(--ink); cursor:pointer;
+    }
+    .hero{padding:52px 26px 44px;}
+    .prospective-banner{padding:16px 26px; font-size:0.92rem;}
+    .hero-photo img{height:200px;}
+    section.block{padding:48px 26px;}
+    .pub-item, .edu-item, .news-item{grid-template-columns:1fr;}
+    .pub-num, .edu-year, .news-date{padding-top:0;}
+  }
+</style>
+</head>
+<body>
+
+<div class="shell">
+
+  <aside class="sidebar">
+    <div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+      <svg class="seal" viewBox="0 0 100 100" role="img" aria-label="BSL seal">
+        <circle cx="50" cy="50" r="47" fill="none" stroke="var(--crimson)" stroke-width="1.6"/>
+        <circle cx="50" cy="50" r="40" fill="none" stroke="var(--gold)" stroke-width="1"/>
+        <text x="50" y="47" text-anchor="middle" font-family="Fraunces, serif" font-size="22" fill="var(--crimson)" font-weight="500">BSL</text>
+        <text x="50" y="63" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="6.5" letter-spacing="1.5" fill="var(--ink-soft)">NMSU · ECE</text>
+      </svg>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="sidenav">Menu</button>
+    </div>
+    <div class="side-name display">Banafsheh Saber Latibari</div>
+    <div class="side-title">Assistant Professor<br>Dept. of Electrical &amp; Computer Engineering<br>New Mexico State University</div>
+
+    <nav class="sidenav" id="sidenav">
+      <a class="navlink" href="#about"><span class="rn">I</span> About</a>
+      <a class="navlink" href="#publications"><span class="rn">II</span> Publications</a>
+      <a class="navlink" href="#teaching"><span class="rn">III</span> Teaching</a>
+      <a class="navlink" href="#students"><span class="rn">IV</span> Students</a>
+      <a class="navlink" href="#news"><span class="rn">V</span> News</a>
+      <a class="navlink" href="#contact"><span class="rn">VI</span> Contact</a>
+    </nav>
+
+    <div class="side-foot">
+      Las Cruces, New Mexico<br>
+      Updated August 2026
+    </div>
+  </aside>
+
+  <main>
+
+    <!-- HERO -->
+    <div class="hero" id="home">
+      <figure class="hero-photo">
+        <img src="https://preview.thenewsmarket.com/Previews/NMSU/StillAssets/1920x1080/596695_v3.jpg" alt="New Mexico State University campus">
+        <figcaption>New Mexico State University · Las Cruces, NM. Photo: NMSU</figcaption>
+      </figure>
+      <div class="eyebrow hero-eyebrow">Faculty Page · Est. 2026</div>
+      <h1>Banafsheh Saber Latibari, Ph.D.</h1>
+      <div class="role">Assistant Professor of Electrical &amp; Computer Engineering</div>
+      <div class="dept">New Mexico State University · Las Cruces, NM</div>
+      <div class="hero-rule"></div>
+    </div>
+
+    <div class="prospective-banner">
+      <strong>Prospective Students</strong> — Inquiries about Ph.D., M.S., and undergraduate openings are welcome by email.
+    </div>
+
+    <!-- I. ABOUT -->
+    <section class="block" id="about">
+      <div class="block-head"><span class="rn-big">I</span><h2>About</h2></div>
+      <div class="two-col">
+        <div class="bio">
+          <p>I am an Assistant Professor in the Department of Electrical and Computer Engineering at New Mexico State University.</p>
+          <p>Before joining NMSU, I was a Postdoctoral Research Associate in the ECE Department at the University of Arizona. I also served as an affiliate member of the Center for Semiconductor Manufacturing.</p>
+          <p>I completed my Ph.D. in Electrical and Computer Engineering at the University of California, Davis in 2024, with a dissertation on the small evolution of vision transformers for low-power devices. I hold an M.S. in Computer Engineering from Sharif University of Technology and a B.S. in Computer Engineering from K.N. Toosi University of Technology.</p>
+
+          <div style="margin-top:34px;">
+            <h3 style="font-family:'IBM Plex Mono',monospace; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--crimson); font-weight:500; margin-bottom:14px;">Education</h3>
+            <div class="edu-item">
+              <div class="edu-year">2024</div>
+              <div>
+                <div class="edu-deg">Ph.D., Electrical &amp; Computer Engineering</div>
+                <div class="edu-inst">University of California, Davis</div>
+              </div>
+            </div>
+            <div class="edu-item">
+              <div class="edu-year">2017</div>
+              <div>
+                <div class="edu-deg">M.S., Computer Engineering</div>
+                <div class="edu-inst">Sharif University of Technology</div>
+              </div>
+            </div>
+            <div class="edu-item">
+              <div class="edu-year">2014</div>
+              <div>
+                <div class="edu-deg">B.S., Computer Engineering</div>
+                <div class="edu-inst">K.N. Toosi University of Technology</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="fact-card">
+            <h3>Research Areas</h3>
+            <div class="tags">
+              <span class="tag">Deep Learning</span>
+              <span class="tag">Computer Vision</span>
+              <span class="tag">Generative AI</span>
+              <span class="tag">NLP</span>
+              <span class="tag">Reliable Computing</span>
+              <span class="tag">Computer Architecture</span>
+              <span class="tag">ML for RTL Design</span>
+              <span class="tag">GPU / FPGA / ASIC</span>
+              <span class="tag">Embedded Systems &amp; IoT</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- II. PUBLICATIONS -->
+    <section class="block" id="publications">
+      <div class="block-head"><span class="rn-big">II</span><h2>Publications</h2></div>
+      <p class="block-sub">10 journal articles, 20 conference papers, and 2 book chapters.</p>
+
+      <div class="pub-tabs" role="tablist" aria-label="Publication categories">
+        <button class="pub-tab active" data-target="pub-journals">Journals (10)</button>
+        <button class="pub-tab" data-target="pub-conf">Conferences (20)</button>
+        <button class="pub-tab" data-target="pub-books">Book Chapters (2)</button>
+      </div>
+
+      <div class="pub-group active" id="pub-journals">
+        <ol class="pub-list">
+          <li class="pub-item"><span class="pub-num">10.</span><div><div class="pub-title">Stealthy Hardware Trojans in AI Accelerators: Attacks on Transformer, CNN, and Systolic Architectures</div><div class="pub-authors">H. Kumar Dharavath*, <b>B. Saber Latibari*</b>, K. I. Gubbi, M. A. Chowdhury, S. Ghimire, R. Yasaei, P. Satam, A. Sasan, H. Homayoun, S. Salehi (*Equal Contribution)</div><div class="pub-venue">IEEE Micro</div></div></li>
+          <li class="pub-item"><span class="pub-num">9.</span><div><div class="pub-title">DDD-GenDT: Dynamic Data-driven Generative Digital Twin Framework</div><div class="pub-authors">Y. Lin, Q. Shi, Z. Yang, <b>B. Saber Latibari</b>, S. Shao, S. Salehi, P. Satam</div><div class="pub-venue">IEEE Transactions on Artificial Intelligence, 2025</div></div></li>
+          <li class="pub-item"><span class="pub-num">8.</span><div><div class="pub-title">Autonomous Vehicle Security: Hybrid Threat Modeling Approach</div><div class="pub-authors">A. Yousseef, Y. Lin, S. Satam, <b>B. Saber Latibari</b>, J. Pacheco, S. Salehi, S. Hariri, P. Satam</div><div class="pub-venue">IEEE Open Journal of Vehicular Technology, 2025</div></div></li>
+          <li class="pub-item"><span class="pub-num">7.</span><div><div class="pub-title">HWRiSe: AI-enabled Hardware Weakness Root Cause Analysis and Storytelling Framework with LLM-assisted Mitigation Suggestion</div><div class="pub-authors">S. Ghimire, Y. Lin, M. Mamun, M. A. Chowdhury, F. Alemi, S. Cai, J. Guo, M. Zhu, H. Li, <b>B. Saber Latibari</b>, S. Rafatirad, P. Satam, S. Salehi</div><div class="pub-venue">Transactions on Design Automation of Electronic Systems, 2025</div></div></li>
+          <li class="pub-item"><span class="pub-num">6.</span><div><div class="pub-title">Optimizing Vision Transformers: Unveiling "Focus and Forget" for Enhanced Computational Efficiency</div><div class="pub-authors"><b>B. Saber Latibari</b>, H. Homayoun, A. Sasan</div><div class="pub-venue">IEEE Access, 2025</div></div></li>
+          <li class="pub-item"><span class="pub-num">5.</span><div><div class="pub-title">Transformers: A Security Perspective</div><div class="pub-authors"><b>B. Saber Latibari</b>, N. Nazari, M. A. Chowdhury, K. I. Gubbi, C. Fang, S. Ghimire, E. Hosseini, H. Sayadi, H. Homayoun, S. Salehi, A. Sasan</div><div class="pub-venue">IEEE Access, 2024</div></div></li>
+          <li class="pub-item"><span class="pub-num">4.</span><div><div class="pub-title">Cross-Core Data Sharing for Energy-Efficient GPUs</div><div class="pub-authors">H. Falahati, M. Sadrosadati, Q. Xu, J. Gómez-Luna, <b>B. Saber Latibari</b>, H. Jeon, S. Hessabi, H. Sarbazi-Azad, O. Mutlu, M. Annavaram, M. Pedram</div><div class="pub-venue">ACM Transactions on Architecture and Code Optimization, 2024</div></div></li>
+          <li class="pub-item"><span class="pub-num">3.</span><div><div class="pub-title">Optimized and Automated Secure IC Design Flow: A Defense-in-Depth Approach</div><div class="pub-authors">K. I. Gubbi, <b>B. Saber Latibari</b>, M. A. Chowdhury, A. Jalilzadeh, E. Yazdandoost Hamedani, S. Rafatirad, A. Sasan, H. Homayoun, S. Salehi</div><div class="pub-venue">IEEE Transactions on Circuits and Systems I (TCAS-I), 2024, Special Issue on Learning, Optimization, and Implementation for Circuits and Systems Driven by AI</div></div></li>
+          <li class="pub-item"><span class="pub-num">2.</span><div><div class="pub-title">Advanced Reinforcement Learning Solution for Clock Skew Engineering: Modified Q-Table Update Technique for Peak Current and IR Drop Minimization</div><div class="pub-authors">S.A. Beheshti-Shirazi, N. Nazari, K. I. Gubbi, <b>B. Saber Latibari</b>, S. Rafatirad, H. Homayoun, A. Sasan, S. Manoj</div><div class="pub-venue">IEEE Access, 2023</div></div></li>
+          <li class="pub-item"><span class="pub-num">1.</span><div><div class="pub-title">Hardware Trojan Detection using Machine Learning: A Tutorial</div><div class="pub-authors">K. I. Gubbi, <b>B. Saber Latibari</b>, A. Srikanth, T. Sheaves, S. A. Beheshti-Shirazi, S. Manoj P. D., S. Rafatirad, A. Sasan, H. Homayoun, S. Salehi</div><div class="pub-venue">ACM Transactions on Embedded Computing Systems, 2023</div></div></li>
+        </ol>
+      </div>
+
+      <div class="pub-group" id="pub-conf">
+        <ol class="pub-list">
+          <li class="pub-item"><span class="pub-num">20.</span><div><div class="pub-title">Semantic Smoothing via Novel View Synthesis for Robust SAR Image Classification</div><div class="pub-authors">D. Brignac, F. Tian, <b>B. Latibari</b>, A. Mahalanobis, R. Tandon</div><div class="pub-venue">ACM Great Lakes Symposium on VLSI (GLSVLSI'26), Finger Lakes, NY, June 22–24, 2026</div></div></li>
+          <li class="pub-item"><span class="pub-num">19.</span><div><div class="pub-title">Lightweight SAR Ship Detection via Contrastive Distillation</div><div class="pub-authors">S. Devasundaram, <b>B. Saber Latibari</b>, A. Mahalanobis</div><div class="pub-venue">GLSVLSI'26, Finger Lakes, NY, June 22–24, 2026</div></div></li>
+          <li class="pub-item"><span class="pub-num">18.</span><div><div class="pub-title">Fine-Grained Patching via Contention Balancer: A Practical Mitigation Strategy for Spectre Vulnerabilities Using SpecScope Contention Maps</div><div class="pub-authors">N. Nazari, <b>B. Saber Latibari</b>, H. Mohammadi Makrani, E. Hosseini, C. Fang, S. Rafatirad, K. Kahswane, A. Mahalanobis, H. Sayadi, H. Homayoun</div><div class="pub-venue">International Symposium on Quality Electronic Design (ISQED'26), San Francisco, CA, April 8–10, 2026</div></div></li>
+          <li class="pub-item"><span class="pub-num">17.</span><div><div class="pub-title">Is Mamba Reliable for Medical Imaging?</div><div class="pub-authors"><b>B. Saber Latibari</b>, N. Nazari, D. Brignac, H. Sayadi, H. Homayoun, A. Mahalanobis</div><div class="pub-venue">ISQED'26, San Francisco, CA, April 8–10, 2026</div></div></li>
+          <li class="pub-item"><span class="pub-num">16.</span><div><div class="pub-title">FaRAccel: FPGA-Accelerated Defense Architecture for Efficient Bit-Flip Attack Resilience in Transformer Models</div><div class="pub-authors">N. Nazari, <b>B. Saber Latibari</b>, E. Hosseini, F. Movafagh, C. Fang, H. Mohammadi Makrani, A. Mahalanobis, S. Rafatirad, H. Sayadi, H. Homayoun</div><div class="pub-venue">IEEE International Conference on Computer Design (ICCD'25)</div></div></li>
+          <li class="pub-item"><span class="pub-num">15.</span><div><div class="pub-title">Hammering the Diagnosis: Rowhammer-Induced Stealthy Trojan Attacks on ViT-Based Medical Imaging</div><div class="pub-authors"><b>B. Saber Latibari</b>, N. Nazari, H. Sayadi, H. Homayoun, A. Mahalanobis</div><div class="pub-venue">ICCD'25</div></div></li>
+          <li class="pub-item"><span class="pub-num">14.</span><div><div class="pub-title">RAG-PRISM: A Personalized, Rapid, and Immersive Skill Mastery Framework with Adaptive Retrieval-Augmented Tutoring</div><div class="pub-authors">G. Raul, Y. Lin, K. Patel, B. Shih, W. Redondo, <b>B. Saber Latibari</b>, J. Pacheco, S. Salehi, P. Satam</div><div class="pub-venue">Frontiers in Education (FIE'25)</div></div></li>
+          <li class="pub-item"><span class="pub-num">13.</span><div><div class="pub-title">Integrating Generative AI into Cybersecurity Education: A Study of OCR and Multimodal LLM-assisted Instruction</div><div class="pub-authors">K. Patel, Y. Lin, G. Raul, B. Shih, W. Redondo, <b>B. Saber Latibari</b>, J. Pacheco, S. Salehi, P. Satam</div><div class="pub-venue">FIE'25</div></div></li>
+          <li class="pub-item"><span class="pub-num">12.</span><div><div class="pub-title">Joint Classification and Unknown Detection Using Class Conditional Probability</div><div class="pub-authors">D. Brignac, A. Cuellar, <b>B. Saber Latibari</b>, A. Mahalanobis</div><div class="pub-venue">IEEE International Symposium on Signal &amp; Systems (ISSCS'25)</div></div></li>
+          <li class="pub-item"><span class="pub-num">11.</span><div><div class="pub-title">Personalized Education with Generative AI and Digital Twins: VR, RAG and Zero-Shot Sentiment Analysis for Industry 4.0 Workforce Development</div><div class="pub-authors">Y. Lin, K. Patel, A. Alhamadah, S. Ghimire, J. Pacheco, <b>B. Saber Latibari</b>, S. Salehi, P. Satam</div><div class="pub-venue">American Society for Engineering Education (ASEE'25)</div></div></li>
+          <li class="pub-item"><span class="pub-num">10.</span><div><div class="pub-title">Power Side-Channel Leakage Assessment of FPGA-Based Spiking Neural Networks</div><div class="pub-authors">V. Pugazhenthi, M. A. Chowdhury, S. Ghimire, H. Kumar Dharavath, <b>B. Saber Latibari</b>, S. Salehi</div><div class="pub-venue">IEEE International Midwest Symposium on Circuits and Systems (MWSCAS'25), Lansing, MI, Aug 10–13, 2025</div></div></li>
+          <li class="pub-item"><span class="pub-num">9.</span><div><div class="pub-title">Transformers for Secure Hardware Systems: Applications, Challenges, and Outlook</div><div class="pub-authors"><b>B. Saber Latibari</b>, N. Nazari, A. Sasan, H. Homayoun, P. Satam, S. Salehi, H. Sayadi</div><div class="pub-venue">GLSVLSI'25, New Orleans, LA, June 30–July 2, 2025</div></div></li>
+          <li class="pub-item"><span class="pub-num">8.</span><div><div class="pub-title">Reliability of Capacitive Read in Arrays of Ferroelectric Capacitors</div><div class="pub-authors">S. Fehlings, M. A. Chowdhury, <b>B. Saber Latibari</b>, S. Salehi, E. Covi</div><div class="pub-venue">IEEE International Symposium on Circuits and Systems (ISCAS'25), London, UK, May 25–28, 2025</div></div></li>
+          <li class="pub-item"><span class="pub-num">7.</span><div><div class="pub-title">HLGM: A Novel Methodology for Improving Model Accuracy Using Saliency-Guided High and Low Gradient Masking</div><div class="pub-authors">A. Karkehabadi, <b>B. Saber Latibari</b>, H. Homayoun, A. Sasan</div><div class="pub-venue">14th International Conference on Information Science and Technology, Chengdu, China, Dec 6–9, 2024</div></div></li>
+          <li class="pub-item"><span class="pub-num">6.</span><div><div class="pub-title">IRET: Incremental Resolution Enhancing Transformer</div><div class="pub-authors"><b>B. Saber Latibari</b>, S. Salehi, H. Homayoun, A. Sasan</div><div class="pub-venue">GLSVLSI'24, Tampa, FL, June 12–14, 2024</div></div></li>
+          <li class="pub-item"><span class="pub-num">5.</span><div><div class="pub-title">Automated Hardware Logic Obfuscation Framework Using GPT</div><div class="pub-authors"><b>B. Saber Latibari</b>, S. Ghimire, M. A. Chowdhury, N. Nazari, K. I. Gubbi, A. Sasan, H. Homayoun, S. Salehi</div><div class="pub-venue">IEEE Dallas Circuits and Systems Conference (DCAS'24), Dallas, TX, April 19–21, 2024</div></div></li>
+          <li class="pub-item"><span class="pub-num">4.</span><div><div class="pub-title">Securing On-Chip Learning: Navigating Vulnerabilities and Potential Safeguards in Spiking Neural Network Architectures</div><div class="pub-authors">N. Nazari, K. I. Gubbi, <b>B. Saber Latibari</b>, M. A. Chowdhury, C. Fang, A. Sasan, S. Rafatirad, H. Homayoun, S. Salehi</div><div class="pub-venue">ISCAS'24, Singapore, May 19–22, 2024</div></div></li>
+          <li class="pub-item"><span class="pub-num">3.</span><div><div class="pub-title">A Survey on FHE Acceleration</div><div class="pub-authors"><b>B. Saber Latibari</b>, K. I. Gubbi, H. Homayoun, A. Sasan</div><div class="pub-venue">DCAS'23, Dallas, TX, April 19–21, 2023</div></div></li>
+          <li class="pub-item"><span class="pub-num">2.</span><div><div class="pub-title">RAPTA: A Hierarchical Representation Learning Solution for Real-Time Prediction of Path-Based Static Timing Analysis</div><div class="pub-authors">T. Chowdhury, A. Vakil, <b>B. Saber Latibari</b>, S.A. Beheshti-Shirazi, A. Mirzaeian, X. Guo, S. Manoj PD, H. Homayoun, A. Sasan</div><div class="pub-venue">GLSVLSI'22, Irvine, CA, June 6–8, 2022</div></div></li>
+          <li class="pub-item"><span class="pub-num">1.</span><div><div class="pub-title">Adaptive-Gravity: A Defense Against Adversarial Samples</div><div class="pub-authors">A. Mirzaeian, Z. Tian, S. Manoj PD, <b>B. Saber Latibari</b>, I. Savidis, H. Homayoun, A. Sasan</div><div class="pub-venue">23rd International Symposium on Quality Electronic Design (ISQED'22), San Francisco, CA, April 23–25, 2022</div></div></li>
+        </ol>
+      </div>
+
+      <div class="pub-group" id="pub-books">
+        <ol class="pub-list">
+          <li class="pub-item"><span class="pub-num">2.</span><div><div class="pub-title">Generative AI in Higher Education Assessment: Theory, Practice, and Ethical Implications (Part II.3)</div><div class="pub-authors">Y. Lin, K. Patel, A. Alhamadah, B. Shih, M. Redondo, D. Corona, <b>B. Saber Latibari</b>, J. Pacheco, S. Salehi, P. Satam</div><div class="pub-venue">Springer, 2026</div></div></li>
+          <li class="pub-item"><span class="pub-num">1.</span><div><div class="pub-title">Machine Learning Techniques for Detecting Hardware Trojans in ASIC Designs (Chapter 4)</div><div class="pub-authors">K. I. Gubbi, <b>B. Saber Latibari</b>, S. Rafatirad, A. Sasan, S. Salehi, H. Homayoun</div><div class="pub-venue">In Advances in Hardware Design for Security and Trust, CRC Press, 2025</div></div></li>
+        </ol>
+      </div>
+
+    </section>
+
+    <!-- III. TEACHING -->
+    <section class="block" id="teaching">
+      <div class="block-head"><span class="rn-big">III</span><h2>Teaching</h2></div>
+      <p class="block-sub">Course assignments at NMSU will be posted here as they are finalized.</p>
+    </section>
+
+    <!-- IV. STUDENTS -->
+    <section class="block" id="students">
+      <div class="block-head"><span class="rn-big">IV</span><h2>Students &amp; Mentoring</h2></div>
+      <p class="block-sub">Building the <b>CORTEX Lab</b>, <em>Computing for Optimized, Reliable, and Trustworthy EXecution</em>, at NMSU. Ph.D., M.S., and undergraduate students interested in joining are welcome to reach out.</p>
+    </section>
+
+    <!-- V. NEWS -->
+    <section class="block" id="news">
+      <div class="block-head"><span class="rn-big">V</span><h2>News</h2></div>
+      <div class="news-item">
+        <div class="news-date">2026</div>
+        <div class="news-body"><p>Joined New Mexico State University as Assistant Professor in the Department of Electrical and Computer Engineering.</p></div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Jun 2026</div>
+        <div class="news-body"><p>Two papers accepted to the ACM Great Lakes Symposium on VLSI (GLSVLSI'26), Finger Lakes, NY.</p></div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Apr 2026</div>
+        <div class="news-body"><p>Two papers accepted to the International Symposium on Quality Electronic Design (ISQED'26), San Francisco, CA. Served as Session Chair.</p></div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">2026</div>
+        <div class="news-body"><p>Appointed Guest Editor for a Special Issue of MDPI Sensors.</p></div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">2025</div>
+        <div class="news-body"><p>Served as Session Chair for the Network and Distributed System Security (NDSS) Symposium, San Diego, CA.</p></div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">2025</div>
+        <div class="news-body"><p>Two papers accepted to the IEEE International Conference on Computer Design (ICCD'25), Dallas, TX.</p></div>
+      </div>
+    </section>
+
+    <!-- VI. CONTACT -->
+    <section class="block" id="contact">
+      <div class="block-head"><span class="rn-big">VI</span><h2>Contact</h2></div>
+      <div class="contact-grid">
+        <div>
+          <div class="contact-row"><div class="l">Email</div><div class="v"><a href="mailto:BSL@NMSU.edu">BSL@NMSU.edu</a></div></div>
+          <div class="contact-row"><div class="l">Department</div><div class="v">Klipsch School of Electrical &amp; Computer Engineering, New Mexico State University</div></div>
+          <div class="contact-row"><div class="l">Location</div><div class="v">Las Cruces, New Mexico</div></div>
+        </div>
+        <div>
+          <div class="contact-row"><div class="l">Google Scholar</div><div class="v"><a class="social-link" href="https://scholar.google.com/citations?user=RWJ1jYUAAAAJ&hl=en" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14z"/><path fill="currentColor" d="M12 0 0 9.5l3.6 2.8a9 9 0 0 1 16.8 0L24 9.5 12 0z"/></svg>scholar.google.com/citations?user=RWJ1jYUAAAAJ</a></div></div>
+          <div class="contact-row"><div class="l">LinkedIn</div><div class="v"><a class="social-link" href="https://www.linkedin.com/in/banafsheh-saber-latibari/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path fill="#fff" d="M7.12 9.4H4.24V19.5h2.88V9.4zM5.68 4.5a1.67 1.67 0 1 0 0 3.34 1.67 1.67 0 0 0 0-3.34zM19.76 19.5h-2.88v-5.3c0-1.26-.02-2.88-1.76-2.88-1.76 0-2.03 1.37-2.03 2.79v5.4H10.2V9.4h2.76v1.38h.04c.38-.73 1.33-1.5 2.73-1.5 2.92 0 3.46 1.93 3.46 4.43v5.79z"/></svg>linkedin.com/in/banafsheh-saber-latibari</a></div></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>© 2026 Banafsheh Saber Latibari · Department of Electrical &amp; Computer Engineering, New Mexico State University</footer>
+
+  </main>
+</div>
+
+<script>
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const sidenav = document.getElementById('sidenav');
+  if(menuToggle){
+    menuToggle.addEventListener('click', () => {
+      const open = sidenav.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', open);
+    });
+    sidenav.querySelectorAll('.navlink').forEach(l => l.addEventListener('click', () => {
+      sidenav.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }));
+  }
+
+  // Scroll-spy nav highlighting
+  const sections = document.querySelectorAll('main section.block, .hero');
+  const navlinks = document.querySelectorAll('.navlink');
+  const map = { home:null };
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        navlinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
+      }
+    });
+  }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+  sections.forEach(s => { if(s.id) io.observe(s); });
+
+  // Publication tabs
+  document.querySelectorAll('.pub-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.pub-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.pub-group').forEach(g => g.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.target).classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
