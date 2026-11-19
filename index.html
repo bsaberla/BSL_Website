@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Banafsheh Saber Latibari · Assistant Professor, ECE, NMSU</title>
-<meta name="description" content="Faculty page of Banafsheh Saber Latibari, Assistant Professor of Electrical and Computer Engineering at New Mexico State University.">
+<title>Banafsheh Saber Latibari, Ph.D. · Assistant Professor, ECE, NMSU</title>
+<meta name="description" content="Faculty page of Banafsheh Saber Latibari, Ph.D., Assistant Professor of Electrical and Computer Engineering at New Mexico State University.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -103,6 +103,15 @@
   .hero-photo{margin:0 0 34px; padding:0;}
   .hero-photo img{width:100%; height:340px; object-fit:cover; display:block; border:1px solid var(--line);}
   .hero-photo figcaption{font-family:'IBM Plex Mono',monospace; font-size:0.7rem; color:var(--ink-faint); margin-top:8px;}
+  .portrait{margin:0 0 18px; border:1px solid var(--line); background:var(--card); padding:10px;}
+  .portrait img{width:100%; aspect-ratio:1/1; object-fit:cover; object-position:50% 30%; display:block;}
+  .portrait figcaption{font-family:'IBM Plex Mono',monospace; font-size:0.72rem; color:var(--ink-soft); padding:10px 4px 2px; line-height:1.5;}
+  .person-list{list-style:none; margin:0 0 6px; padding:0;}
+  .person-list li{display:flex; justify-content:space-between; gap:16px; align-items:baseline; padding:14px 0; border-top:1px solid var(--line);}
+  .person-list li:first-child{border-top:none;}
+  .person-name{font-family:'Fraunces',serif; font-size:1.05rem;}
+  .person-role{font-family:'IBM Plex Mono',monospace; font-size:0.78rem; color:var(--ink-faint); text-align:right;}
+  .sub-h{font-family:'IBM Plex Mono',monospace; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--crimson); font-weight:500; margin:30px 0 8px;}
   .prospective-banner{
     background:var(--crimson); color:#fff; font-weight:700;
     padding:18px 64px; font-size:1rem; border-bottom:1px solid var(--line);
@@ -258,12 +267,6 @@
 
   <aside class="sidebar">
     <div style="display:flex; align-items:center; justify-content:space-between; width:100%;">
-      <svg class="seal" viewBox="0 0 100 100" role="img" aria-label="BSL seal">
-        <circle cx="50" cy="50" r="47" fill="none" stroke="var(--crimson)" stroke-width="1.6"/>
-        <circle cx="50" cy="50" r="40" fill="none" stroke="var(--gold)" stroke-width="1"/>
-        <text x="50" y="47" text-anchor="middle" font-family="Fraunces, serif" font-size="22" fill="var(--crimson)" font-weight="500">BSL</text>
-        <text x="50" y="63" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="6.5" letter-spacing="1.5" fill="var(--ink-soft)">NMSU · ECE</text>
-      </svg>
       <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="sidenav">Menu</button>
     </div>
     <div class="side-name display">Banafsheh Saber Latibari</div>
@@ -274,8 +277,9 @@
       <a class="navlink" href="#publications"><span class="rn">II</span> Publications</a>
       <a class="navlink" href="#teaching"><span class="rn">III</span> Teaching</a>
       <a class="navlink" href="#students"><span class="rn">IV</span> Students</a>
-      <a class="navlink" href="#news"><span class="rn">V</span> News</a>
-      <a class="navlink" href="#contact"><span class="rn">VI</span> Contact</a>
+      <a class="navlink" href="#service"><span class="rn">V</span> Service</a>
+      <a class="navlink" href="#news"><span class="rn">VI</span> News</a>
+      <a class="navlink" href="#contact"><span class="rn">VII</span> Contact</a>
     </nav>
 
     <div class="side-foot">
@@ -289,11 +293,11 @@
     <!-- HERO -->
     <div class="hero" id="home">
       <figure class="hero-photo">
-        <img src="https://preview.thenewsmarket.com/Previews/NMSU/StillAssets/1920x1080/596695_v3.jpg" alt="New Mexico State University campus">
-        <figcaption>New Mexico State University · Las Cruces, NM. Photo: NMSU</figcaption>
+        <img src="nmsu-campus.jpg" alt="New Mexico State University campus">
+        <figcaption>New Mexico State University · Las Cruces, NM. </figcaption>
       </figure>
       <div class="eyebrow hero-eyebrow">Faculty Page · Est. 2026</div>
-      <h1>Banafsheh Saber Latibari</h1>
+      <h1>Banafsheh Saber Latibari, Ph.D.</h1>
       <div class="role">Assistant Professor of Electrical &amp; Computer Engineering</div>
       <div class="dept">New Mexico State University · Las Cruces, NM</div>
       <div class="hero-rule"></div>
@@ -339,6 +343,10 @@
         </div>
 
         <div>
+          <figure class="portrait">
+            <img src="profile.jpg" alt="Portrait of Banafsheh Saber Latibari">
+            <figcaption>Banafsheh Saber Latibari, Ph.D.<br>Assistant Professor, ECE, NMSU</figcaption>
+          </figure>
           <div class="fact-card">
             <h3>Research Areas</h3>
             <div class="tags">
@@ -420,20 +428,52 @@
     <!-- III. TEACHING -->
     <section class="block" id="teaching">
       <div class="block-head"><span class="rn-big">III</span><h2>Teaching</h2></div>
-      <p class="block-sub">EE 526/462 Computer System Architecture Fall 2026</p>
+      <p class="block-sub">Courses taught at New Mexico State University.</p>
+      <div class="teach-item"><div><div class="teach-course">EE 564: Architectural Concepts II</div><div class="teach-inst">Instructor, Electrical &amp; Computer Engineering, New Mexico State University</div></div><div class="teach-term">Spring 2027</div></div>
+      <div class="teach-item"><div><div class="teach-course">EE 526/426: Computer System Architecture</div><div class="teach-inst">Instructor, Electrical &amp; Computer Engineering, New Mexico State University</div></div><div class="teach-term">Fall 2026</div></div>
     </section>
 
     <!-- IV. STUDENTS -->
     <section class="block" id="students">
       <div class="block-head"><span class="rn-big">IV</span><h2>Students &amp; Mentoring</h2></div>
-      <p class="block-sub">Building the <b>CORTEX Lab</b>, <em>Computing for Optimized, Reliable, and Trustworthy Edge eXecution</em>, at NMSU. Ph.D., M.S., and undergraduate students interested in joining are welcome to reach out.</p>
+      <p class="block-sub">Building the <b>CORTEX Lab</b>, <em>Computing for Optimized, Reliable, and Trustworthy EXecution</em>, at NMSU. Ph.D., M.S., and undergraduate students interested in joining are welcome to reach out.</p>
+      <div class="sub-h">Current Students</div>
+      <ul class="person-list">
+        <li><span class="person-name">Justyn Rippie</span><span class="person-role">M.S., Computer Science</span></li>
+        <li><span class="person-name">Michael Anderson</span><span class="person-role">Undergraduate, Electrical &amp; Computer Engineering</span></li>
+      </ul>
     </section>
 
-    <!-- V. NEWS -->
+    <!-- V. SERVICE -->
+    <section class="block" id="service">
+      <div class="block-head"><span class="rn-big">V</span><h2>Service</h2></div>
+      <p class="block-sub">Departmental service, including student committee work.</p>
+      <div class="sub-h">Student Committees</div>
+      <ul class="person-list">
+        <li><span class="person-name">Omar Faruqe</span><span class="person-role">Ph.D. Defense</span></li>
+        <li><span class="person-name">Irving Delgado</span><span class="person-role">Ph.D. Comprehensive Exam</span></li>
+        <li><span class="person-name">Derrick Aidoo</span><span class="person-role">Ph.D. Qualifying Exam</span></li>
+        <li><span class="person-name">Islam Omar</span><span class="person-role">Ph.D. Qualifying Exam</span></li>
+      </ul>
+    </section>
+
+    <!-- VI. NEWS -->
     <section class="block" id="news">
-      <div class="block-head"><span class="rn-big">V</span><h2>News</h2></div>
+      <div class="block-head"><span class="rn-big">VI</span><h2>News</h2></div>
       <div class="news-item">
-        <div class="news-date">2026</div>
+        <div class="news-date">Nov 2026</div>
+        <div class="news-body"><p>Serving as Review Committee Member for ISCAS 2027.</p></div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Oct 2026</div>
+        <div class="news-body"><p>Serving as Special Session Chair and Technical Program Committee (TPC) member for ISQED 2027.</p></div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Sep 2026</div>
+        <div class="news-body"><p>Serving as Workshop Organizer for the SENSE workshop at WACV 2027.</p></div>
+      </div>
+      <div class="news-item">
+        <div class="news-date">Aug 2026</div>
         <div class="news-body"><p>Joined New Mexico State University as Assistant Professor in the Department of Electrical and Computer Engineering.</p></div>
       </div>
       <div class="news-item">
@@ -458,9 +498,9 @@
       </div>
     </section>
 
-    <!-- VI. CONTACT -->
+    <!-- VII. CONTACT -->
     <section class="block" id="contact">
-      <div class="block-head"><span class="rn-big">VI</span><h2>Contact</h2></div>
+      <div class="block-head"><span class="rn-big">VII</span><h2>Contact</h2></div>
       <div class="contact-grid">
         <div>
           <div class="contact-row"><div class="l">Email</div><div class="v"><a href="mailto:BSL@NMSU.edu">BSL@NMSU.edu</a></div></div>
